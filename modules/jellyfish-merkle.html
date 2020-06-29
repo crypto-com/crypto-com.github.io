@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Jellyfish Merkle Trie | Crypto.com Chain</title>
+    <meta name="description" content="Welcome to Crypto.com Chain&#39;s documentation!">
+    <meta name="generator" content="VuePress 1.3.0">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.4c9036fb.css" as="style"><link rel="preload" href="/assets/js/app.87b9d60e.js" as="script"><link rel="preload" href="/assets/js/2.f6144b7e.js" as="script"><link rel="preload" href="/assets/js/29.4727a189.js" as="script"><link rel="prefetch" href="/assets/js/10.1cdea379.js"><link rel="prefetch" href="/assets/js/11.b81d5b6e.js"><link rel="prefetch" href="/assets/js/12.ebcf529d.js"><link rel="prefetch" href="/assets/js/13.808bce9e.js"><link rel="prefetch" href="/assets/js/14.e2912e35.js"><link rel="prefetch" href="/assets/js/15.60461254.js"><link rel="prefetch" href="/assets/js/16.5fe5db6e.js"><link rel="prefetch" href="/assets/js/17.84cca1c2.js"><link rel="prefetch" href="/assets/js/18.825a3de8.js"><link rel="prefetch" href="/assets/js/19.f9142acf.js"><link rel="prefetch" href="/assets/js/20.3e73af9d.js"><link rel="prefetch" href="/assets/js/21.aba308fd.js"><link rel="prefetch" href="/assets/js/22.83321bcb.js"><link rel="prefetch" href="/assets/js/23.b04b2df4.js"><link rel="prefetch" href="/assets/js/24.681f9c6c.js"><link rel="prefetch" href="/assets/js/25.be3144a2.js"><link rel="prefetch" href="/assets/js/26.5db2f66c.js"><link rel="prefetch" href="/assets/js/27.25665eb5.js"><link rel="prefetch" href="/assets/js/28.70d083de.js"><link rel="prefetch" href="/assets/js/3.c61d9941.js"><link rel="prefetch" href="/assets/js/30.d03015d5.js"><link rel="prefetch" href="/assets/js/31.c62e85d2.js"><link rel="prefetch" href="/assets/js/32.63f06b33.js"><link rel="prefetch" href="/assets/js/33.8ba9d6b5.js"><link rel="prefetch" href="/assets/js/34.c447f9e1.js"><link rel="prefetch" href="/assets/js/35.8491695c.js"><link rel="prefetch" href="/assets/js/36.14947c5d.js"><link rel="prefetch" href="/assets/js/37.4441c601.js"><link rel="prefetch" href="/assets/js/4.98fec9a1.js"><link rel="prefetch" href="/assets/js/5.dddf6e84.js"><link rel="prefetch" href="/assets/js/6.c42000b0.js"><link rel="prefetch" href="/assets/js/7.adda006a.js"><link rel="prefetch" href="/assets/js/8.a5d62fc4.js"><link rel="prefetch" href="/assets/js/9.7c0971f5.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4c9036fb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Crypto.com Chain</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/getting-started/" class="nav-link">
+  Getting Started
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Thaler Testnet" class="dropdown-title"><span class="title">Thaler Testnet</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/thaler-testnet.html" class="nav-link">
+  Setup Tutorial
+</a></li><li class="dropdown-item"><!----> <a href="https://chain.crypto.com/explorer" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Testnet Explorer
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://chain.crypto.com/explorer/faucet" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Testnet Faucet
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Wallet Management" class="dropdown-title"><span class="title">Wallet Management</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/wallets/#client-cli" class="nav-link">
+  Overview
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/client-cli.html#client-cli" class="nav-link">
+  Client CLI
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/sample-chain-wallet.html#sample-chain-wallet" class="nav-link">
+  Sample Chain Wallet
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/client-rpc.html#client-rpc" class="nav-link">
+  Client RPC
+</a></li></ul></div></div><div class="nav-item"><a href="https://crypto-com.github.io/Crypto.com_Chain.pdf" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Download
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/getting-started/" class="nav-link">
+  Getting Started
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Thaler Testnet" class="dropdown-title"><span class="title">Thaler Testnet</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/thaler-testnet.html" class="nav-link">
+  Setup Tutorial
+</a></li><li class="dropdown-item"><!----> <a href="https://chain.crypto.com/explorer" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Testnet Explorer
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://chain.crypto.com/explorer/faucet" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Testnet Faucet
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Wallet Management" class="dropdown-title"><span class="title">Wallet Management</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/wallets/#client-cli" class="nav-link">
+  Overview
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/client-cli.html#client-cli" class="nav-link">
+  Client CLI
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/sample-chain-wallet.html#sample-chain-wallet" class="nav-link">
+  Sample Chain Wallet
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/client-rpc.html#client-rpc" class="nav-link">
+  Client RPC
+</a></li></ul></div></div><div class="nav-item"><a href="https://crypto-com.github.io/Crypto.com_Chain.pdf" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Download
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="jellyfish-merkle-trie"><a href="#jellyfish-merkle-trie" class="header-anchor">#</a> Jellyfish Merkle Trie</h1> <blockquote><p>The ascii arts is copied from libra code comments.</p></blockquote> <h2 id="concept"><a href="#concept" class="header-anchor">#</a> Concept</h2> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token keyword">type</span> H256 <span class="token operator">=</span> <span class="token punctuation">[</span>u8<span class="token punctuation">;</span> <span class="token number">32</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">fn</span> <span class="token function">hash</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> Option<span class="token operator">&lt;</span>Value<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> H256<span class="token punctuation">;</span>
+<span class="token keyword">fn</span> <span class="token function">hash</span><span class="token punctuation">(</span>left<span class="token punctuation">:</span> H256<span class="token punctuation">,</span> right<span class="token punctuation">:</span> H256<span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> H256<span class="token punctuation">;</span>
+</code></pre></div><p>We build the conceptual model first, then apply the optimizations on top of it to make it practical.</p> <ul><li>It's a complete binary tree with 256 depth, the leaf node contains <code>Option&lt;Value&gt;</code>, <code>None</code> means value not exists.</li> <li>It's a binary trie which implements the map from  <code>H256</code> to <code>Option&lt;Value&gt;</code>.</li> <li>It's a merkle tree, so all the internal nodes contains hashes of it's direct children.
+<ul><li>Hash of leaf nodes: <code>hash(value)</code>.</li> <li><code>hash(None)</code> is a constant, it's called a placeholder hash.</li> <li>Hash of internal nodes: <code>hash(left, right)</code>.</li></ul></li></ul> <p>Every modification in leaf nodes should cause the root hash and all the internal nodes along the path to change.</p> <blockquote><p><code>hash(left, right) != hash(right, left)</code></p> <p>This is important to fulfill above property.</p></blockquote> <p>All the nodes are stored in underlying key-value storage(usually on disk), and
+all the nodes committed into underlying storage are considered immutable, so we
+can query the old state, unless we decide to prune the states that is too old.</p> <h3 id="merkle-proof"><a href="#merkle-proof" class="header-anchor">#</a> Merkle Proof</h3> <ul><li>Membership merkle proof for a key is the list of sibling hashes along the
+path from leaf node to the root node, combined with the key itself.</li> <li>Non-membership proof is just an membership proof lead to a <code>None</code> value.</li> <li>Range proof, TODO.</li></ul> <h2 id="optimization"><a href="#optimization" class="header-anchor">#</a> Optimization</h2> <ul><li><p>Flatten a 4 layer complete binary tree into array of 16 leaf nodes, this reduces the total numbers of nodes.</p> <p>The internal node only stores leaf nodes of this sub-tree, these leaf nodes might denote either a leaf node or an
+internal node in outer tree.</p> <p>The hash of the internal node is the root hash of this subtree, which is computed like this:</p> <div class="language-text extra-class"><pre class="language-text"><code>InternalNode[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F]
+
+  4 -&gt;              +------ root hash ------+
+                    |                       |
+  3 -&gt;        +---- # ----+           +---- # ----+
+              |           |           |           |
+  2 -&gt;        #           #           #           #
+            /   \       /   \       /   \       /   \
+  1 -&gt;     #     #     #     #     #     #     #     #
+          / \   / \   / \   / \   / \   / \   / \   / \
+  0 -&gt;   0   1 2   3 4   5 6   7 8   9 A   B C   D E   F
+  ^
+height
+Note: # denotes the hash of its two direct children
+</code></pre></div><p>We also need treat it as a sub-tree when generating merkle proof.</p> <blockquote><p><strong>Nibbles</strong></p> <p>When traversing the internal nodes, we need to iterate the 32 bytes key in units of 4-bit nibbles like this:</p> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token number">0x0123456789abcdef</span> <span class="token punctuation">-&gt;</span> <span class="token punctuation">[</span><span class="token number">0x0</span><span class="token punctuation">,</span> <span class="token number">0x1</span><span class="token punctuation">,</span> <span class="token number">0x2</span><span class="token punctuation">,</span> <span class="token number">0x3</span><span class="token punctuation">,</span> <span class="token punctuation">...</span><span class="token punctuation">]</span>
+</code></pre></div></blockquote></li> <li><p>Replace a subtree which has no non-empty leaf node with a <code>None</code>.</p> <p>Replace a subtree which has single non-empty leaf node with the leaf node itself.</p> <p>It further shortens the average depth of path greatly in sparse case.</p> <blockquote><p>The merkle patrica tree in ethereum further utilize extension node to shorten the path, we don't implement that to
+keep the logic simpler.</p></blockquote> <p>This rule applies to both the outer tree and the sub-tree inside the internal node.</p> <p>For example (notice the path of  <code>C</code> is not shortened because it references an internal node):</p> <div class="language-text extra-class"><pre class="language-text"><code>InternalNode[
+  0 =&gt; Child(leaf),
+  3 =&gt; Child(leaf),
+  8 =&gt; Child(leaf),
+  C =&gt; Child(internal),
+  _ =&gt; None,
+]
+
+  4 -&gt;              +------ root hash ------+
+                    |                       |
+  3 -&gt;        +---- # ----+           +---- # ----+
+              |           |           |           |
+  2 -&gt;        #           @           8           #
+            /   \                               /   \
+  1 -&gt;     0     3                             #     @
+                                              / \
+  0 -&gt;                                       C   @
+  ^
+height
+Note: @ denotes placeholder hash.
+</code></pre></div></li> <li><p>Identify nodes in underlying storage with <code>(version, nibble path)</code> rather than hash, the <code>version</code> is a monotonically
+increasing number.</p> <p>This helps to keep data compact in underlying storage, because the nodes are inserted in key order.</p> <blockquote><p>We use the block height as the version number, we'll use them interchangeably in this doc.</p></blockquote></li> <li><p>We can compress the duplicates of placeholder hashes in the merkle proof.</p> <blockquote><p>Not implemented in this library yet, can be implemented outside of the library.</p> <p>Effectiveness need further benchmarks.</p></blockquote></li></ul> <h2 id="algorithm"><a href="#algorithm" class="header-anchor">#</a> Algorithm</h2> <h3 id="types"><a href="#types" class="header-anchor">#</a> Types</h3> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token keyword">type</span> Value <span class="token operator">=</span> Vec<span class="token operator">&lt;</span>u8<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> NodeKey <span class="token punctuation">{</span>
+  version<span class="token punctuation">:</span> Version<span class="token punctuation">,</span>
+  nibbles<span class="token punctuation">:</span> Vec<span class="token operator">&lt;</span>Nibble<span class="token operator">&gt;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">struct</span> Leaf <span class="token punctuation">{</span>
+  key<span class="token punctuation">:</span> H256<span class="token punctuation">,</span>
+  value<span class="token punctuation">:</span> Value<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">struct</span> Internal <span class="token punctuation">{</span>
+  children<span class="token punctuation">:</span> HashMap<span class="token operator">&lt;</span>Nibble<span class="token punctuation">,</span> Child<span class="token operator">&gt;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">struct</span> Child <span class="token punctuation">{</span>
+  version<span class="token punctuation">:</span> Version<span class="token punctuation">,</span>
+  hash<span class="token punctuation">:</span> H256<span class="token punctuation">,</span>
+  is_leaf<span class="token punctuation">:</span> bool<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">enum</span> Node <span class="token punctuation">{</span>
+    Null<span class="token punctuation">,</span>  <span class="token comment">// Special branch only for empty tree, ignored for simplicity.</span>
+    <span class="token function">Internal</span><span class="token punctuation">(</span>Internal<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">Leaf</span><span class="token punctuation">(</span>Leaf<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="get"><a href="#get" class="header-anchor">#</a> <code>get</code></h3> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token comment">// proof generation is ignored.  </span>
+<span class="token keyword">fn</span> <span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> H256<span class="token punctuation">,</span> version<span class="token punctuation">:</span> Version<span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> Option<span class="token operator">&lt;</span>Value<span class="token operator">&gt;</span> <span class="token punctuation">{</span> 
+  <span class="token keyword">let</span> <span class="token keyword">mut</span> next_key <span class="token operator">=</span> NodeKey<span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span>version<span class="token punctuation">,</span> <span class="token function">vec!</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">0</span><span class="token punctuation">..</span><span class="token number">64</span> <span class="token punctuation">{</span>
+    <span class="token keyword">match</span> <span class="token function">get_node</span><span class="token punctuation">(</span>next_key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">Internal</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> 
+        <span class="token keyword">let</span> nibble <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">nibbles</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// get the i-eth nibble.  </span>
+        <span class="token keyword">if</span> <span class="token keyword">let</span> <span class="token function">Some</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span> <span class="token operator">=</span> node<span class="token punctuation">.</span>children<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>nibble<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          next_key <span class="token operator">=</span> NodeKey<span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span>child<span class="token punctuation">.</span>version<span class="token punctuation">,</span> next_key<span class="token punctuation">.</span>nibbles <span class="token operator">+</span> nibble<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+          <span class="token comment">// not exists</span>
+          <span class="token keyword">return</span> None<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token function">Leaf</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">// nibble prefix is the same, but key maybe different.</span>
+        <span class="token keyword">return</span> <span class="token keyword">if</span> node<span class="token punctuation">.</span>key <span class="token operator">==</span> key <span class="token punctuation">{</span>
+          <span class="token function">Some</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+          None
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  None
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="set"><a href="#set" class="header-anchor">#</a> <code>set</code></h3> <p>Since the nodes on disk are immutable, so when we need to update a value, we create new nodes. For example, when we
+update <code>key2</code>'s value:</p> <div class="language-text extra-class"><pre class="language-text"><code>                  (on disk)              (in memory)
+                    root0                  root1'
+                   /     \                /     \
+                  /   ___ \ _____________/       \
+                 /  _/     \                      \
+                / _/        \                      \
+               / /           \                      \
+  key1 =&gt; value11           key2 =&gt; value21       key2 =&gt; value22
+     (on disk)                 (on disk)            (in memory)
+</code></pre></div><p>And to optimize batch operations, when a node is already in memory, it's replaced. For example, if we update <code>key1</code>'s
+value now,  <code>root1'</code> is deleted and replaced by <code>root1''</code>:</p> <div class="language-text extra-class"><pre class="language-text"><code>                  (on disk)                                     (in memory)
+                    root0                                         root1''
+                   /     \                                       /     \
+                  /       \                                     /       \
+                 /         \                                   /         \
+                /           \                                 /           \
+               /             \                               /             \
+  key1 =&gt; value11             key2 =&gt; value21  key1 =&gt; value12              key2 =&gt; value22
+     (on disk)                   (on disk)       (in memory)                  (in memory)
+</code></pre></div><p>In the end, all the in memory nodes need to be persisted into the underlying storage.</p> <p>We need a cache api to manage these in memory nodes:</p> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token keyword">fn</span> <span class="token function">cache_get</span><span class="token punctuation">(</span>node_key<span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> Node <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token keyword">let</span> <span class="token function">Some</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span> <span class="token operator">=</span> cache<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>node_key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    node<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// load from underlying storage</span>
+    <span class="token function">get_node</span><span class="token punctuation">(</span>node_key<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">fn</span> <span class="token function">cache_delete</span><span class="token punctuation">(</span>node_key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> cache<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>node_key<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">is_none</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">assert!</span><span class="token punctuation">(</span>stale_nodes<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>node_key<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;Node gets stale twice unexpectedly.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">fn</span> <span class="token function">cache_put</span><span class="token punctuation">(</span>node_key<span class="token punctuation">,</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">assert!</span><span class="token punctuation">(</span>cache<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>node_key<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">is_none</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;Node gets inserted twice unexpectedly&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>The actual <code>put</code> implementation:</p> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token keyword">fn</span> <span class="token function">put</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> version<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> root_key <span class="token operator">=</span> NodeKey<span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span>version<span class="token punctuation">,</span> <span class="token function">vec!</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">put_at</span><span class="token punctuation">(</span>root_key<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> version<span class="token punctuation">,</span> <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fn</span> <span class="token function">put_at</span><span class="token punctuation">(</span>node_key<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> version<span class="token punctuation">,</span> i_visited<span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> <span class="token punctuation">(</span>NodeKey<span class="token punctuation">,</span> Node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">cache_delete</span><span class="token punctuation">(</span>node_key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">match</span> <span class="token function">get_node</span><span class="token punctuation">(</span>node_key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">Internal</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> visited <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">nibbles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span> <span class="token punctuation">..</span> i_visited<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> nibble <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">nibbles</span><span class="token punctuation">(</span>i_visited<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> new <span class="token operator">=</span> <span class="token keyword">if</span> <span class="token keyword">let</span> <span class="token function">Some</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span> <span class="token operator">=</span> node<span class="token punctuation">.</span>children<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>nibble<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">put_at</span><span class="token punctuation">(</span>NodeKey<span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span>child<span class="token punctuation">.</span>version<span class="token punctuation">,</span> visited <span class="token operator">+</span> nibble<span class="token punctuation">)</span><span class="token punctuation">,</span>
+               key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> version<span class="token punctuation">,</span> i_visited <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token number">1</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> new <span class="token operator">=</span> Node<span class="token punctuation">::</span><span class="token function">new_leaf</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">cache_put</span><span class="token punctuation">(</span>NodeKey<span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span>version<span class="token punctuation">,</span> visited <span class="token operator">+</span> nibble<span class="token punctuation">)</span><span class="token punctuation">,</span> new<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        new
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      node<span class="token punctuation">.</span>children<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>nibble<span class="token punctuation">,</span> new<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      node_key<span class="token punctuation">.</span>version <span class="token operator">=</span> version<span class="token punctuation">;</span>
+      <span class="token function">cache_put</span><span class="token punctuation">(</span>node_key<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">(</span>node_key<span class="token punctuation">,</span> node<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">Leaf</span><span class="token punctuation">(</span>existing_leaf<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">cache_delete</span><span class="token punctuation">(</span>node_key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">let</span> visited <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">nibbles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">..</span>i_visited<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> remaining <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">nibbles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span>i_visited<span class="token punctuation">..</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> existing <span class="token operator">=</span> existing_leaf<span class="token punctuation">.</span>key<span class="token punctuation">.</span><span class="token function">nibbles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span>i_visited<span class="token punctuation">..</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> <span class="token punctuation">(</span>prefix<span class="token punctuation">,</span> remaining<span class="token punctuation">,</span> existing<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">skip_common_prefix</span><span class="token punctuation">(</span>remaining<span class="token punctuation">,</span> existing<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> remaining<span class="token punctuation">.</span><span class="token function">is_empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">assert!</span><span class="token punctuation">(</span>existing<span class="token punctuation">.</span><span class="token function">is_empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// same key, update the leaf</span>
+        <span class="token keyword">let</span> new <span class="token operator">=</span> Node<span class="token punctuation">::</span><span class="token function">new_leaf</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">cache_put</span><span class="token punctuation">(</span>NodeKey<span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span>version<span class="token punctuation">,</span> node_key<span class="token punctuation">.</span>nibbles<span class="token punctuation">)</span><span class="token punctuation">,</span> new<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        new
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// create internal node.</span>
+        <span class="token function">cache_put</span><span class="token punctuation">(</span>NodeKey<span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span>version<span class="token punctuation">,</span> visited <span class="token operator">+</span> prefix <span class="token operator">+</span> existing<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> existing_leaf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> new <span class="token operator">=</span> Node<span class="token punctuation">::</span><span class="token function">new_leaf</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">cache_put</span><span class="token punctuation">(</span>NodeKey<span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span>version<span class="token punctuation">,</span> visited <span class="token operator">+</span> prefix <span class="token operator">+</span> remaining<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> new<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">let</span> node <span class="token operator">=</span> InternalNode<span class="token punctuation">::</span><span class="token function">two_children</span><span class="token punctuation">(</span>
+          existing<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> existing_leaf<span class="token punctuation">.</span><span class="token function">hash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          remaining<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> new<span class="token punctuation">.</span><span class="token function">hash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">cache_put</span><span class="token punctuation">(</span>NodeKey<span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span>version<span class="token punctuation">,</span> visited <span class="token operator">+</span> prefix<span class="token punctuation">)</span><span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token keyword">let</span> <span class="token function">Some</span><span class="token punctuation">(</span>nibble<span class="token punctuation">)</span> <span class="token operator">=</span> prefix<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          node <span class="token operator">=</span> InternalNode<span class="token punctuation">::</span><span class="token function">one_child</span><span class="token punctuation">(</span>nibble<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          node_key <span class="token operator">=</span> NodeKey<span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span>version<span class="token punctuation">,</span> visited <span class="token operator">+</span> prefix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">cache_put</span><span class="token punctuation">(</span>node_key<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">(</span>node_key<span class="token punctuation">,</span> node<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="encoding"><a href="#encoding" class="header-anchor">#</a> Encoding</h2> <p>The encoding is simply concatenate the fields together.</p> <ul><li><p><code>H256</code>
+It is encoded as fixed length byte array, which is just bytes themselves, no length prefixed.</p></li> <li><p><code>Vec&lt;u8&gt;</code></p> <p>Variable length byte array is encoded as the bytes prefixed with a <code>u64</code> length.</p></li> <li><p>Numbers are encoded as little endian by default, unless indicated otherwise.</p></li></ul> <h3 id="node"><a href="#node" class="header-anchor">#</a> <code>Node</code></h3> <ul><li><p><code>tag: u8</code></p> <p><code>Null: 0, Internal: 1, Leaf: 2</code></p></li> <li><p>Content of different branches, empty for <code>Null</code> branch.</p></li></ul> <h4 id="internal"><a href="#internal" class="header-anchor">#</a> <code>Internal</code></h4> <ul><li><p><code>existence_bitmap: u16</code>. The bit is set if the child exists.</p></li> <li><p><code>leaf_bitmap: u16</code>. The bit is set if the child exists and is leaf node.</p></li> <li><p><code>for i in existence_bitmap:</code></p> <ul><li><p><code>version: u64</code>, <a href="https://en.wikipedia.org/wiki/LEB128" target="_blank" rel="noopener noreferrer">ULEB128<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <blockquote><p>The high bit is set if more bytes follow</p> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token number">0</span><span class="token punctuation">..</span><span class="token number">8</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> low_bits <span class="token operator">=</span> num <span class="token operator">&amp;</span> <span class="token number">0x7f</span><span class="token punctuation">;</span>
+  num <span class="token operator">&gt;&gt;=</span> <span class="token number">7</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> more <span class="token operator">=</span> num <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token function">push</span><span class="token punctuation">(</span>low_bits <span class="token operator">|</span> more <span class="token operator">&lt;&lt;</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token operator">!</span>more <span class="token punctuation">{</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></blockquote></li> <li><p><code>hash: H256</code></p></li></ul></li></ul> <h4 id="leaf"><a href="#leaf" class="header-anchor">#</a> <code>Leaf</code></h4> <ul><li><code>key: H256</code></li> <li><code>hash: H256</code></li> <li><code>value: Vec&lt;u8&gt;</code> <ul><li><code>size: u32</code>,  <a href="https://en.wikipedia.org/wiki/LEB128" target="_blank" rel="noopener noreferrer">ULEB128<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>, max <code>2^31</code></li> <li>bytes</li></ul></li></ul> <h3 id="nodekey"><a href="#nodekey" class="header-anchor">#</a> <code>NodeKey</code></h3> <p>The key used to identify node in key-value storage.</p> <ul><li><p><code>version: u64</code>, big endian.</p> <blockquote><p>Big endian is used here to keep the numeric order.</p></blockquote></li> <li><p><code>num_nibbles: u8</code></p></li> <li><p><code>nibble_bytes: bytes</code></p> <p>One byte for two nibbles.</p></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.87b9d60e.js" defer></script><script src="/assets/js/2.f6144b7e.js" defer></script><script src="/assets/js/29.4727a189.js" defer></script>
+  </body>
+</html>

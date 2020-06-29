@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Implementation | Crypto.com Chain</title>
+    <meta name="description" content="Welcome to Crypto.com Chain&#39;s documentation!">
+    <meta name="generator" content="VuePress 1.3.0">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.4c9036fb.css" as="style"><link rel="preload" href="/assets/js/app.87b9d60e.js" as="script"><link rel="preload" href="/assets/js/2.f6144b7e.js" as="script"><link rel="preload" href="/assets/js/30.d03015d5.js" as="script"><link rel="prefetch" href="/assets/js/10.1cdea379.js"><link rel="prefetch" href="/assets/js/11.b81d5b6e.js"><link rel="prefetch" href="/assets/js/12.ebcf529d.js"><link rel="prefetch" href="/assets/js/13.808bce9e.js"><link rel="prefetch" href="/assets/js/14.e2912e35.js"><link rel="prefetch" href="/assets/js/15.60461254.js"><link rel="prefetch" href="/assets/js/16.5fe5db6e.js"><link rel="prefetch" href="/assets/js/17.84cca1c2.js"><link rel="prefetch" href="/assets/js/18.825a3de8.js"><link rel="prefetch" href="/assets/js/19.f9142acf.js"><link rel="prefetch" href="/assets/js/20.3e73af9d.js"><link rel="prefetch" href="/assets/js/21.aba308fd.js"><link rel="prefetch" href="/assets/js/22.83321bcb.js"><link rel="prefetch" href="/assets/js/23.b04b2df4.js"><link rel="prefetch" href="/assets/js/24.681f9c6c.js"><link rel="prefetch" href="/assets/js/25.be3144a2.js"><link rel="prefetch" href="/assets/js/26.5db2f66c.js"><link rel="prefetch" href="/assets/js/27.25665eb5.js"><link rel="prefetch" href="/assets/js/28.70d083de.js"><link rel="prefetch" href="/assets/js/29.4727a189.js"><link rel="prefetch" href="/assets/js/3.c61d9941.js"><link rel="prefetch" href="/assets/js/31.c62e85d2.js"><link rel="prefetch" href="/assets/js/32.63f06b33.js"><link rel="prefetch" href="/assets/js/33.8ba9d6b5.js"><link rel="prefetch" href="/assets/js/34.c447f9e1.js"><link rel="prefetch" href="/assets/js/35.8491695c.js"><link rel="prefetch" href="/assets/js/36.14947c5d.js"><link rel="prefetch" href="/assets/js/37.4441c601.js"><link rel="prefetch" href="/assets/js/4.98fec9a1.js"><link rel="prefetch" href="/assets/js/5.dddf6e84.js"><link rel="prefetch" href="/assets/js/6.c42000b0.js"><link rel="prefetch" href="/assets/js/7.adda006a.js"><link rel="prefetch" href="/assets/js/8.a5d62fc4.js"><link rel="prefetch" href="/assets/js/9.7c0971f5.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4c9036fb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Crypto.com Chain</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/getting-started/" class="nav-link">
+  Getting Started
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Thaler Testnet" class="dropdown-title"><span class="title">Thaler Testnet</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/thaler-testnet.html" class="nav-link">
+  Setup Tutorial
+</a></li><li class="dropdown-item"><!----> <a href="https://chain.crypto.com/explorer" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Testnet Explorer
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://chain.crypto.com/explorer/faucet" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Testnet Faucet
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Wallet Management" class="dropdown-title"><span class="title">Wallet Management</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/wallets/#client-cli" class="nav-link">
+  Overview
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/client-cli.html#client-cli" class="nav-link">
+  Client CLI
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/sample-chain-wallet.html#sample-chain-wallet" class="nav-link">
+  Sample Chain Wallet
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/client-rpc.html#client-rpc" class="nav-link">
+  Client RPC
+</a></li></ul></div></div><div class="nav-item"><a href="https://crypto-com.github.io/Crypto.com_Chain.pdf" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Download
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/getting-started/" class="nav-link">
+  Getting Started
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Thaler Testnet" class="dropdown-title"><span class="title">Thaler Testnet</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/thaler-testnet.html" class="nav-link">
+  Setup Tutorial
+</a></li><li class="dropdown-item"><!----> <a href="https://chain.crypto.com/explorer" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Testnet Explorer
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://chain.crypto.com/explorer/faucet" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Testnet Faucet
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Wallet Management" class="dropdown-title"><span class="title">Wallet Management</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/wallets/#client-cli" class="nav-link">
+  Overview
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/client-cli.html#client-cli" class="nav-link">
+  Client CLI
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/sample-chain-wallet.html#sample-chain-wallet" class="nav-link">
+  Sample Chain Wallet
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/client-rpc.html#client-rpc" class="nav-link">
+  Client RPC
+</a></li></ul></div></div><div class="nav-item"><a href="https://crypto-com.github.io/Crypto.com_Chain.pdf" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Download
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="implementation"><a href="#implementation" class="header-anchor">#</a> Implementation</h1> <h3 id="data-structures-in-punishment-module"><a href="#data-structures-in-punishment-module" class="header-anchor">#</a> Data structures in Punishment module</h3> <h4 id="punishmentconfig"><a href="#punishmentconfig" class="header-anchor">#</a> <code>PunishmentConfig</code></h4> <p><code>PunishmentConfig</code> holds the values for all the network parameters related to punishment. <code>PunishmentConfig</code> can be
+initialized from <code>genesis.json</code>.</p> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token comment">/// Configuration for computing and executing validator punishments</span>
+<span class="token keyword">pub</span> <span class="token keyword">struct</span> PunishmentConfig <span class="token punctuation">{</span>
+    <span class="token comment">/// Number of blocks for which the liveness is calculated for uptime tracking.</span>
+    block_signing_window<span class="token punctuation">:</span> u16<span class="token punctuation">,</span>
+    <span class="token comment">/// Maximum number of blocks with faulty/missed validations allowed for an account in last `block_signing_window`</span>
+    <span class="token comment">/// blocks before it gets jailed.</span>
+    missed_block_threshold<span class="token punctuation">:</span> u16<span class="token punctuation">,</span>
+    <span class="token comment">/// Percentage of funds (bonded + unbonded) slashed when a validator is non-live.</span>
+    liveness_slash_percent<span class="token punctuation">:</span> Milli<span class="token punctuation">,</span>
+    <span class="token comment">/// Percentage of funds (bonded + unbonded) slashed when validator makes a byzantine fault.</span>
+    byzantine_slash_percent<span class="token punctuation">:</span> Milli<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">Note:</p> <p><code>UNBONDING_PERIOD</code> is a <em>global</em> network parameter and is not stored in <code>PunishmentConfig</code>.</p></div> <h4 id="livenesstracker"><a href="#livenesstracker" class="header-anchor">#</a> <code>LivenessTracker</code></h4> <p><code>LivenessTracker</code> is used to track liveness of all the current active validators. At the beginning of each block,
+liveness of each active validator is updated using <code>update_liveness</code> function. Besides, <code>LivenessTracker</code> also
+exposes function to <code>add</code> and <code>remove</code> a validator from liveness tracking. Finally, <code>is_live</code> function can be used to
+check if a given validator is live or not.</p> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token comment">/// Liveness tracker for validators</span>
+<span class="token keyword">pub</span> <span class="token keyword">struct</span> LivenessTracker <span class="token punctuation">{</span>
+    <span class="token comment">/// Number of blocks to use for calculating validator liveness (jailing parameter in genesis)</span>
+    block_signing_window<span class="token punctuation">:</span> u16<span class="token punctuation">,</span>
+    <span class="token comment">/// Number of blocks a validator can miss signing from last `block_signing_window` blocks</span>
+    missed_block_threshold<span class="token punctuation">:</span> u16<span class="token punctuation">,</span>
+    <span class="token comment">/// Holds data to measure liveness of a validator</span>
+    <span class="token comment">///</span>
+    <span class="token comment">/// # Note</span>
+    <span class="token comment">///</span>
+    <span class="token comment">/// - Size of this `BitVec` should be equal to `block_signing_window`.</span>
+    <span class="token comment">/// - Stores `true` at `index = height % block_signing_window`, if validator has signed that block, `false`</span>
+    <span class="token comment">///   otherwise.</span>
+    liveness<span class="token punctuation">:</span> BTreeMap<span class="token operator">&lt;</span>TendermintValidatorAddress<span class="token punctuation">,</span> BitVec<span class="token operator">&gt;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">impl</span> LivenessTracker <span class="token punctuation">{</span>
+    <span class="token comment">/// Adds a validator to liveness tracking</span>
+    <span class="token comment">///</span>
+    <span class="token comment">/// # Note</span>
+    <span class="token comment">///</span>
+    <span class="token comment">/// - Returns `Err` when a validator with `tendermint_validator_address` already exists</span>
+    <span class="token keyword">pub</span> <span class="token keyword">fn</span> <span class="token function">add_validator</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">mut</span> <span class="token keyword">self</span><span class="token punctuation">,</span> tendermint_validator_address<span class="token punctuation">:</span> TendermintValidatorAddress<span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> Result<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">todo!</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/// Removes validator from liveness tracking</span>
+    <span class="token comment">///</span>
+    <span class="token comment">/// # Note</span>
+    <span class="token comment">///</span>
+    <span class="token comment">/// - Returns `Err` when validator with given address does not exist</span>
+    <span class="token keyword">pub</span> <span class="token keyword">fn</span> <span class="token function">remove_validator</span><span class="token punctuation">(</span>
+        <span class="token operator">&amp;</span><span class="token keyword">mut</span> <span class="token keyword">self</span><span class="token punctuation">,</span>
+        tendermint_validator_address<span class="token punctuation">:</span> <span class="token operator">&amp;</span>TendermintValidatorAddress<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> Result<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">todo!</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/// Updates liveness of a validator with new block data</span>
+    <span class="token comment">///</span>
+    <span class="token comment">/// # Note</span>
+    <span class="token comment">///</span>
+    <span class="token comment">/// - Returns `Err` when validator with given address does not exist</span>
+    <span class="token keyword">pub</span> <span class="token keyword">fn</span> <span class="token function">update_liveness</span><span class="token punctuation">(</span>
+        <span class="token operator">&amp;</span><span class="token keyword">mut</span> <span class="token keyword">self</span><span class="token punctuation">,</span>
+        tendermint_validator_address<span class="token punctuation">:</span> <span class="token operator">&amp;</span>TendermintValidatorAddress<span class="token punctuation">,</span>
+        block_height<span class="token punctuation">:</span> BlockHeight<span class="token punctuation">,</span>
+        signed<span class="token punctuation">:</span> bool<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> Result<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">todo!</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/// Checks if a validator is live or not</span>
+    <span class="token comment">///</span>
+    <span class="token comment">/// # Note</span>
+    <span class="token comment">///</span>
+    <span class="token comment">/// - Returns `Err` when validator with given address does not exist</span>
+    <span class="token keyword">pub</span> <span class="token keyword">fn</span> <span class="token function">is_live</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">,</span> tendermint_validator_address<span class="token punctuation">:</span> <span class="token operator">&amp;</span>TendermintValidatorAddress<span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> Result<span class="token operator">&lt;</span>bool<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">todo!</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="working-of-punishment-module-interactions-with-abci"><a href="#working-of-punishment-module-interactions-with-abci" class="header-anchor">#</a> Working of Punishment module (interactions with ABCI)</h3> <h4 id="initchain"><a href="#initchain" class="header-anchor">#</a> <code>InitChain</code></h4> <ul><li><code>PunishmentConfig</code> is initialized with values in <code>genesis.json</code>.</li> <li><code>LivenessTracker</code> is initialized with all the council nodes in <code>genesis.json</code>.</li></ul> <h4 id="beginblock"><a href="#beginblock" class="header-anchor">#</a> <code>BeginBlock</code></h4> <ul><li>Update <code>LivenessTracker</code> with all the signers/non-signers of last block (data can be obtained from
+<code>request.last_commit_info</code>). Note that the <code>request.last_commit_info</code> is not present for <code>block_height = 1</code>, so,
+<code>LivenessTracker</code> starts getting updated from <code>block_height = 2</code>. Also, <code>last_commit_info</code> may contain data for
+non-validators (validators which were recently removed from validator set), it is safe to ignore this data with a
+<code>warn</code> log.</li> <li>Obtain all the evidences of detected byzantine faults from <code>request.byzantine_validators</code>. For each evidence:
+<ul><li>Check if the evidence is valid, i.e., <code>evidence.height + UNBONDING_PERIOD &gt;= current_block_height</code>.</li> <li>Get address of faulty validator from <code>evidence.validator.address</code> (if present). Ignore the evidence if faulty
+validator's information is not present in the evidence. Raw address bytes can be converted to
+<code>TendermintValidatorAddress</code> using <code>TendermintValidatorAddress::try_from(validator.address.as_slice())</code>.</li> <li>If the validator is not already jailed (ignore if the validator is already jailed):
+<ul><li>Jail and slash the validator (set <code>jailed_until = current_block_time + UNBONDIND_PERIOD</code> and slash by
+<code>BYZANTINE_SLASH_PERCENT</code>). Note that, both, slashing and jailing should happen as one command, i.e., validator
+account's <code>nonce</code> will only increase by one.</li> <li>Remove the validator from current validator set, i.e., set their voting power to zero. Validator will get removed
+from <code>LivenessTracker</code> in <code>EndBlock</code>.</li> <li>Add validator address to a list of permanently banned validators.</li> <li>Generate slashing and jailing events for validator.</li></ul></li></ul></li></ul> <div class="custom-block tip"><p class="custom-block-title">Note:</p> <p>An additional validation for <code>NodeJoinTx</code> will be to verify if the validator address is not present in the list of
+permanently banned validators.</p></div> <h4 id="endblock"><a href="#endblock" class="header-anchor">#</a> <code>EndBlock</code></h4> <ul><li>Update <code>LivenessTracker</code>, i.e., add all the validators who joined in current block and remove all the validator who,
+left/got jailed in current block.</li> <li>Set <code>response.validator_updates</code> for all the validators whose voting power was changed. Tendermint will remove all the
+validators whose voting power is set to zero, so, all the jailed validators should have zero voting power.</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.87b9d60e.js" defer></script><script src="/assets/js/2.f6144b7e.js" defer></script><script src="/assets/js/30.d03015d5.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Transaction processing | Crypto.com Chain</title>
+    <meta name="description" content="Welcome to Crypto.com Chain&#39;s documentation!">
+    <meta name="generator" content="VuePress 1.3.0">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.4c9036fb.css" as="style"><link rel="preload" href="/assets/js/app.87b9d60e.js" as="script"><link rel="preload" href="/assets/js/2.f6144b7e.js" as="script"><link rel="preload" href="/assets/js/33.8ba9d6b5.js" as="script"><link rel="prefetch" href="/assets/js/10.1cdea379.js"><link rel="prefetch" href="/assets/js/11.b81d5b6e.js"><link rel="prefetch" href="/assets/js/12.ebcf529d.js"><link rel="prefetch" href="/assets/js/13.808bce9e.js"><link rel="prefetch" href="/assets/js/14.e2912e35.js"><link rel="prefetch" href="/assets/js/15.60461254.js"><link rel="prefetch" href="/assets/js/16.5fe5db6e.js"><link rel="prefetch" href="/assets/js/17.84cca1c2.js"><link rel="prefetch" href="/assets/js/18.825a3de8.js"><link rel="prefetch" href="/assets/js/19.f9142acf.js"><link rel="prefetch" href="/assets/js/20.3e73af9d.js"><link rel="prefetch" href="/assets/js/21.aba308fd.js"><link rel="prefetch" href="/assets/js/22.83321bcb.js"><link rel="prefetch" href="/assets/js/23.b04b2df4.js"><link rel="prefetch" href="/assets/js/24.681f9c6c.js"><link rel="prefetch" href="/assets/js/25.be3144a2.js"><link rel="prefetch" href="/assets/js/26.5db2f66c.js"><link rel="prefetch" href="/assets/js/27.25665eb5.js"><link rel="prefetch" href="/assets/js/28.70d083de.js"><link rel="prefetch" href="/assets/js/29.4727a189.js"><link rel="prefetch" href="/assets/js/3.c61d9941.js"><link rel="prefetch" href="/assets/js/30.d03015d5.js"><link rel="prefetch" href="/assets/js/31.c62e85d2.js"><link rel="prefetch" href="/assets/js/32.63f06b33.js"><link rel="prefetch" href="/assets/js/34.c447f9e1.js"><link rel="prefetch" href="/assets/js/35.8491695c.js"><link rel="prefetch" href="/assets/js/36.14947c5d.js"><link rel="prefetch" href="/assets/js/37.4441c601.js"><link rel="prefetch" href="/assets/js/4.98fec9a1.js"><link rel="prefetch" href="/assets/js/5.dddf6e84.js"><link rel="prefetch" href="/assets/js/6.c42000b0.js"><link rel="prefetch" href="/assets/js/7.adda006a.js"><link rel="prefetch" href="/assets/js/8.a5d62fc4.js"><link rel="prefetch" href="/assets/js/9.7c0971f5.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4c9036fb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Crypto.com Chain</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/getting-started/" class="nav-link">
+  Getting Started
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Thaler Testnet" class="dropdown-title"><span class="title">Thaler Testnet</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/thaler-testnet.html" class="nav-link">
+  Setup Tutorial
+</a></li><li class="dropdown-item"><!----> <a href="https://chain.crypto.com/explorer" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Testnet Explorer
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://chain.crypto.com/explorer/faucet" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Testnet Faucet
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Wallet Management" class="dropdown-title"><span class="title">Wallet Management</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/wallets/#client-cli" class="nav-link">
+  Overview
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/client-cli.html#client-cli" class="nav-link">
+  Client CLI
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/sample-chain-wallet.html#sample-chain-wallet" class="nav-link">
+  Sample Chain Wallet
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/client-rpc.html#client-rpc" class="nav-link">
+  Client RPC
+</a></li></ul></div></div><div class="nav-item"><a href="https://crypto-com.github.io/Crypto.com_Chain.pdf" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Download
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/getting-started/" class="nav-link">
+  Getting Started
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Thaler Testnet" class="dropdown-title"><span class="title">Thaler Testnet</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/thaler-testnet.html" class="nav-link">
+  Setup Tutorial
+</a></li><li class="dropdown-item"><!----> <a href="https://chain.crypto.com/explorer" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Testnet Explorer
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://chain.crypto.com/explorer/faucet" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Testnet Faucet
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Wallet Management" class="dropdown-title"><span class="title">Wallet Management</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/wallets/#client-cli" class="nav-link">
+  Overview
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/client-cli.html#client-cli" class="nav-link">
+  Client CLI
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/sample-chain-wallet.html#sample-chain-wallet" class="nav-link">
+  Sample Chain Wallet
+</a></li><li class="dropdown-item"><!----> <a href="/wallets/client-rpc.html#client-rpc" class="nav-link">
+  Client RPC
+</a></li></ul></div></div><div class="nav-item"><a href="https://crypto-com.github.io/Crypto.com_Chain.pdf" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Download
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="transaction-processing"><a href="#transaction-processing" class="header-anchor">#</a> Transaction processing</h1> <blockquote><p><em><strong>Caution:</strong></em> Some details are subject to changes.</p></blockquote> <p>The <code>check_tx</code> and <code>deliver_tx</code> events share the same transaction processing code, the only difference is they operate
+on different storage buffers (refer to <a href="#">buffered-storage</a>).</p> <p>In <code>commit</code> event, the <code>deliver_tx</code> buffer is flushed, while the <code>check_tx</code> buffer is dropped.</p> <h2 id="transaction-types"><a href="#transaction-types" class="header-anchor">#</a> Transaction types</h2> <div class="language- extra-class"><pre class="language-text"><code>Enclave
+  Transfer
+  Deposit
+  Withdraw
+Public
+  Unbond
+  Unjail
+  NodeJoin
+</code></pre></div><p>The enclave transactions are obfuscated in enclave, so they can only be verified completely in the validation enclave,
+while the public transactions don't need enclave to verify.</p> <p>The basic process procedure is like this:</p> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token keyword">let</span> context <span class="token operator">=</span> <span class="token punctuation">...</span>
+<span class="token keyword">match</span> tx <span class="token punctuation">{</span>
+    <span class="token function">Enclave</span><span class="token punctuation">(</span>tx<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> action <span class="token operator">=</span> <span class="token function">validate_enclave_tx</span><span class="token punctuation">(</span>storage<span class="token punctuation">,</span> context<span class="token punctuation">,</span> tx<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">;</span>
+        <span class="token function">execute_enclave_tx</span><span class="token punctuation">(</span>storage<span class="token punctuation">,</span> tx<span class="token punctuation">,</span> action<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">Public</span><span class="token punctuation">(</span>tx<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">process_public_tx</span><span class="token punctuation">(</span>storage<span class="token punctuation">,</span> context<span class="token punctuation">,</span> tx<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="context"><a href="#context" class="header-anchor">#</a> Context</h3> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token keyword">struct</span> ChainInfo <span class="token punctuation">{</span>
+    <span class="token comment">/// minimal fee computed based on tx size expected to be paid</span>
+    <span class="token keyword">pub</span> min_fee_computed<span class="token punctuation">:</span> Fee<span class="token punctuation">,</span>
+    <span class="token comment">/// network hexamedical ID</span>
+    <span class="token keyword">pub</span> chain_hex_id<span class="token punctuation">:</span> u8<span class="token punctuation">,</span>
+    <span class="token comment">/// block time of current processing block</span>
+    <span class="token keyword">pub</span> block_time<span class="token punctuation">:</span> Timespec<span class="token punctuation">,</span>
+    <span class="token comment">/// height of current processing block</span>
+    <span class="token keyword">pub</span> block_height<span class="token punctuation">:</span> BlockHeight<span class="token punctuation">,</span>
+    <span class="token comment">/// related network parameters, used by validation of withdraw tx</span>
+    <span class="token keyword">pub</span> unbonding_period<span class="token punctuation">:</span> u32<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="enclave-transactions"><a href="#enclave-transactions" class="header-anchor">#</a> Enclave transactions</h2> <h3 id="validate-enclave-tx"><a href="#validate-enclave-tx" class="header-anchor">#</a> <code>validate_enclave_tx</code></h3> <ul><li><p>Check inputs unspent and load sealed log for them, and pass to validation enclave</p></li> <li><p>Load staking state for withdraw and deposit transactions, and pass to validation enclave</p></li> <li><p>Validation enclave decrypt the transaction, unseal the inputs and do the following validations:</p> <ol><li><p>Check tx attributes (<code>chain_hex_id</code>, <code>app_version</code>)</p></li> <li><p>Check inputs/outputs basic</p> <ul><li>Not empty</li> <li>No duplicates</li></ul></li> <li><p>Check input timelock</p></li> <li><p>Verify inputs witnesses for transfer/deposit</p></li> <li><p>Verify staking address witness for withdraw</p></li> <li><p>Check staking state not jailed for withdraw/deposit</p></li> <li><p>Check staking state for withdraw:</p> <ul><li><code>nonce</code> match</li> <li><code>context.block_time &gt;= unbonded_from</code></li> <li><code>unbonded != 0</code></li> <li><code>outputs.iter().all(|x| x.valid_from == account.unbonded_from)</code></li></ul></li> <li><p>Check fee and input/output sum amounts:</p> <ul><li><p>Transfer</p> <p><code>sum_input - sum_output == min_fee</code></p> <p>Return <code>sum_input - sum_output</code> as paid fee</p></li> <li><p>Deposit</p> <p><code>sum_input &gt; min_fee</code></p> <p>Return <code>sum_input - min_fee</code> as deposit amount</p></li> <li><p>Withdraw</p> <p><code>account.unbonded - sum_output == min_fee</code></p> <p>Return <code>account.unbonded - sum_output</code> as paid fee</p></li></ul></li></ol></li></ul> <h3 id="execute-enclave-tx"><a href="#execute-enclave-tx" class="header-anchor">#</a> <code>execute_enclave_tx</code></h3> <p>The <code>TxEnclaveAction</code> is returned as the result of success validation of enclave transaction:</p> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token keyword">enum</span> TxEnclaveAction <span class="token punctuation">{</span>
+    Transfer <span class="token punctuation">{</span>
+        fee<span class="token punctuation">:</span> Fee<span class="token punctuation">,</span>
+        spend_utxo<span class="token punctuation">:</span> Vec<span class="token operator">&lt;</span>TxoPointer<span class="token operator">&gt;</span><span class="token punctuation">,</span>
+        create_utxo<span class="token punctuation">:</span> TxoIndex<span class="token punctuation">,</span>
+        sealed_log<span class="token punctuation">:</span> SealedLog<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    Deposit <span class="token punctuation">{</span>
+        fee<span class="token punctuation">:</span> Fee<span class="token punctuation">,</span>
+        spend_utxo<span class="token punctuation">:</span> Vec<span class="token operator">&lt;</span>TxoPointer<span class="token operator">&gt;</span><span class="token punctuation">,</span>
+        deposit<span class="token punctuation">:</span> <span class="token punctuation">(</span>StakedStateAddress<span class="token punctuation">,</span> Coin<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    Withdraw <span class="token punctuation">{</span>
+        fee<span class="token punctuation">:</span> Fee<span class="token punctuation">,</span>
+        <span class="token comment">// withdraw supposed to withdraw all unbonded,</span>
+        <span class="token comment">// the amount here only to do sanity check</span>
+        withdraw<span class="token punctuation">:</span> <span class="token punctuation">(</span>StakedStateAddress<span class="token punctuation">,</span> Coin<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        create_utxo<span class="token punctuation">:</span> TxoIndex<span class="token punctuation">,</span>
+        sealed_log<span class="token punctuation">:</span> SealedLog<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>It's executed as follows:</p> <ul><li><p><code>fee</code></p> <p>Written into block result events, and get accumulated into reward pool afterward.</p></li> <li><p><code>spend_utxo</code>/<code>create_utxo</code></p> <p>Modify UTxO storage</p></li> <li><p><code>sealed_log</code></p> <p>Write into storage</p></li> <li><p><code>deposit</code>/<code>withdraw</code></p> <p>Modify staking state and related states</p></li></ul> <h2 id="public-transactions"><a href="#public-transactions" class="header-anchor">#</a> Public transactions</h2> <p>Common validations:</p> <ul><li>Check tx attributes (<code>chain_hex_id</code>, <code>app_version</code>)</li> <li>Verify staking witness</li> <li>Check the witness match the staking address</li> <li>Check <code>nonce</code> matches</li></ul> <h3 id="unbond"><a href="#unbond" class="header-anchor">#</a> Unbond</h3> <p>The actual paid fee is <code>context.min_fee_computed</code>.</p> <p>Actions:</p> <ul><li><code>staking.bonded -= tx.value</code></li> <li><code>staking.unbonded += tx.value - context.min_fee_computed</code></li> <li><code>staking.unbonded_from = block_time + unbonding_period</code></li></ul> <p>Validations:</p> <ul><li>Not jailed</li> <li>Coin computations no error, which implies:
+<ul><li><code>tx.value &gt;= context.min_fee_computed</code></li> <li><code>staking.bonded &gt;= tx.value</code></li></ul></li></ul> <h3 id="unjail"><a href="#unjail" class="header-anchor">#</a> Unjail</h3> <p>The actual paid fee is zero.</p> <p>Action:</p> <ul><li>Transit staking state from &quot;jailed validator&quot; to &quot;inactive(unjailed) validator&quot; (refer to <a href="/modules/staking-state.html#unjail">staking
+state</a>).</li></ul> <p>Validations:</p> <ul><li>Already jailed</li> <li><code>block_time &gt;= jailed_until</code></li></ul> <h3 id="node-join"><a href="#node-join" class="header-anchor">#</a> Node Join</h3> <p>The actual paid fee is zero.</p> <p>Action</p> <ul><li>Transit staking state from &quot;clean staking&quot; or &quot;inactive(unjailed) validator&quot; to active validator (refer to  <a href="/modules/staking-state.html#node-join">staking
+state</a>)</li></ul> <p>Validations:</p> <ul><li>Not jailed</li> <li>Not active</li> <li><code>staking.bonded &gt;= minimal_required_staking</code></li> <li>Validator address not used</li> <li>Validator address not banned</li> <li>Used validator address list not full when re-join with new validator key.</li></ul> <h2 id="appendix"><a href="#appendix" class="header-anchor">#</a> Appendix</h2> <h3 id="tx-storage"><a href="#tx-storage" class="header-anchor">#</a> Tx Storage</h3> <h4 id="kv-store"><a href="#kv-store" class="header-anchor">#</a> KV Store</h4> <ul><li><p><code>COL_TX_META</code>, <code>txid -&gt; BitVec</code>
+UTxO spent status.</p></li> <li><p><code>COL_ENCLAVE_TX</code>, <code>txid -&gt; sealed tx payload</code></p> <ul><li>abci query sealed payload for tx inputs, pass them to tx-validation-enclave for it to validate the tx.</li> <li>For tx-query to query sealed tx payload.</li></ul></li> <li><p><code>COL_WITNESS</code>, <code>txid -&gt; TxWitness</code>
+Only for abci-query</p></li> <li><p><code>COL_BODIES</code>, <code>txid -&gt; Tx</code>
+Only for abci-query</p></li></ul> <h4 id="merkle-trie"><a href="#merkle-trie" class="header-anchor">#</a> Merkle Trie</h4> <p>Staking states are stored in merkle trie.</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.87b9d60e.js" defer></script><script src="/assets/js/2.f6144b7e.js" defer></script><script src="/assets/js/33.8ba9d6b5.js" defer></script>
+  </body>
+</html>
